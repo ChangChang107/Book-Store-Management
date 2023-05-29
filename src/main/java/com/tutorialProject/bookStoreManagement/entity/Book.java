@@ -9,16 +9,18 @@ import jakarta.persistence.Id;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String name;
     private String author;
     private String price;
 
     public Book() {
+        super();
     }
 
     public Book(int id, String name, String author, String price) {
+        super();
         this.id = id;
         this.name = name;
         this.author = author;
@@ -26,6 +28,7 @@ public class Book {
     }
 
     public Book(String name, String author, String price) {
+        super();
         this.name = name;
         this.author = author;
         this.price = price;

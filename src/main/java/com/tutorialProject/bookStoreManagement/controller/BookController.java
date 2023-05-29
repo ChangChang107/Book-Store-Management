@@ -6,6 +6,9 @@ import com.tutorialProject.bookStoreManagement.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.*;
 
 @Controller
 public class BookController {
@@ -24,8 +27,12 @@ public class BookController {
     }
 
     @GetMapping("/available_books")
-    public String getAllBook() {
-        return "bookList";
+    public ModelAndView getAllBook() {
+        List<Book> list = service.getAllBook();
+//        ModelAndView m = new ModelAndView();
+//        m.setViewName("bookList");
+//        m.addObjects("book", list)
+        return new  ModelAndView("bookList", "book", list);
     }
 
     @PostMapping("/save")
